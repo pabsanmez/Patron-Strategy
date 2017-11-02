@@ -8,16 +8,11 @@
 
 import UIKit
 
-struct aModel {
-  var text: String
-  init (text: String){
-    self.text = text
-  }
-}
-
 class ATableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
   
-  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var lblTitle: UILabel!
+  @IBOutlet weak var lblValue: UILabel!
+  
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,15 +25,21 @@ class ATableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
     }
   
   //Protocol Methods
-  func drawCell(cell: UITableViewCell, withItem item: Any) {
-    if let cell = cell as? ATableViewCell, let item = item as? aModel {
-      cell.label.text = item.text
+  func drawCell(cell: UITableViewCell, withItem item: MainTableItemProtocol) {
+    if let cell = cell as? ATableViewCell, let item = item as? UserInformationVM {
+      cell.lblTitle.text = item.title
+      cell.lblValue.text = item.value
     }
   }
   
   
-  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
     return tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath)
+  }
+  
+  func registerCell(_ tableView: UITableView){
+    let nib = UINib(nibName: "ATableViewCell", bundle: nil)
+    tableView.register(nib, forCellReuseIdentifier: "ATableViewCell")
   }
     
 }

@@ -11,10 +11,15 @@ import UIKit
 
 protocol PatronStrategyDrawerProtocol {
   func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-  func drawCell(cell: UITableViewCell , withItem item: Any)
+  func drawCell(cell: UITableViewCell , withItem item: MainTableItemProtocol)
+  //var item: MainTableItemProtocol? { get set }
 }
 
 protocol DataProtocol {
   var cellDrawer: PatronStrategyDrawerProtocol { get }
   var texto: Any { get }
+}
+
+protocol MainTableItemProtocol{
+  var type: PatronStrategyDrawerProtocol { get }
 }

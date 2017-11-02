@@ -15,6 +15,7 @@ struct bModel {
   }
 }
 class BTableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
+  
  
   @IBOutlet weak var lblB: UILabel!
   @IBOutlet weak var lblC: UILabel!
@@ -31,9 +32,9 @@ class BTableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
     }
   
   //Protocol Methods
-  func drawCell(cell: UITableViewCell, withItem item: Any) {
-    if let cell = cell as? BTableViewCell, let item = item as? bModel {
-      cell.lblB.text = item.text
+  func drawCell(cell: UITableViewCell, withItem item: MainTableItemProtocol) {
+    if let cell = cell as? BTableViewCell, let item = item as? UserInformationVM {
+      cell.lblB.text = item.title
       cell.lblC.text = "Meeeeeh"
     }
   }
@@ -41,6 +42,11 @@ class BTableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
   
   func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return tableView.dequeueReusableCell(withIdentifier: "BTableViewCell", for: indexPath)
+  }
+  
+  func registerCell(_ tableView: UITableView){
+    let nib = UINib(nibName: "BTableViewCell", bundle: nil)
+    tableView.register(nib, forCellReuseIdentifier: "BTableViewCell")
   }
   
     

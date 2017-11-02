@@ -19,20 +19,29 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zv-vV-x5o">
-                        <rect key="frame" x="154" y="11" width="12" height="21"/>
+                        <rect key="frame" x="8" y="11" width="12" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-JN-hDN">
+                        <rect key="frame" x="300" y="11.5" width="12" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="5Nm-JN-hDN" secondAttribute="trailing" constant="8" id="2fc-En-a6g"/>
                     <constraint firstItem="9zv-vV-x5o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="COI-BI-qwT"/>
-                    <constraint firstItem="9zv-vV-x5o" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Jwu-8j-gBR"/>
+                    <constraint firstItem="5Nm-JN-hDN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IDA-Ra-igg"/>
+                    <constraint firstItem="9zv-vV-x5o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gVZ-Kr-SB8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="label" destination="9zv-vV-x5o" id="uHf-LH-9ZT"/>
+                <outlet property="lblTitle" destination="9zv-vV-x5o" id="jZ7-dB-Wax"/>
+                <outlet property="lblValue" destination="5Nm-JN-hDN" id="JRO-5J-Vt7"/>
             </connections>
         </tableViewCell>
     </objects>

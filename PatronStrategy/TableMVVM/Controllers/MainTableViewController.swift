@@ -15,14 +15,12 @@ class MainTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let aCell = ATableViewCell()
-    aCell.registerCell(self.tableView)
-    
-    let bNib = UINib(nibName: "BTableViewCell", bundle: nil)
-    self.tableView.register(bNib, forCellReuseIdentifier: "BTableViewCell")
+    viewModel.registerCells(self.tableView)
     self.tableView.tableFooterView = UIView()
-
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 44
     misDatos = viewModel.items
+    tableView?.dataSource = viewModel
   }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +30,7 @@ class MainTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    /*override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
@@ -41,16 +39,11 @@ class MainTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return misDatos.count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   
+   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let item = misDatos[indexPath.row]
-      
-      let cell = item.type.cellForTableView(tableView, cellForRowAt: indexPath)
-      item.type.drawCell(cell: cell, withItem: item)
-      
-      //let cell = item.cellDrawer.cellForTableView(tableView, cellForRowAt: indexPath)
-      //item.cellDrawer.drawCell(cell: cell, withItem: item.texto)
-      
+      let cell = item.type.cellType.cellForTableView(tableView, cellForRowAt: indexPath, idCell: item.type.idCell)
+      item.type.cellType.drawCell(cell: cell, withItem: item)
       return cell
-    }
+    }*/
 }

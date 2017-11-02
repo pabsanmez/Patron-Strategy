@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class UserPictureVM: MainTableItemProtocol {
+  
+  var type: MainTableItemType{
+    return .userPicture
+  }
+
+  var imgURL: String
+  
+  init(imgURL: String){
+    self.imgURL = imgURL
+  }
+}
+

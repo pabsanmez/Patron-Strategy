@@ -22,14 +22,12 @@
 		224B67001FA8B5780017E1D5 /* PatronStrategyDrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B66FF1FA8B5780017E1D5 /* PatronStrategyDrawerProtocol.swift */; };
 		225F96BD1FAB11C400192ECD /* UserInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96BC1FAB11C400192ECD /* UserInformationModel.swift */; };
 		225F96BF1FAB11D200192ECD /* UserPictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96BE1FAB11D200192ECD /* UserPictureModel.swift */; };
-		225F96C21FAB12E100192ECD /* UserDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96C11FAB12E100192ECD /* UserDateModel.swift */; };
-		225F96C41FAB186E00192ECD /* CellItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96C31FAB186E00192ECD /* CellItemModel.swift */; };
 		225F96C61FAB18DE00192ECD /* MainTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96C51FAB18DE00192ECD /* MainTableViewVM.swift */; };
 		225F96CA1FAB1B3500192ECD /* dataExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 225F96C91FAB1B3500192ECD /* dataExample.json */; };
 		225F96CC1FAB1F3900192ECD /* UserInformationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96CB1FAB1F3900192ECD /* UserInformationVM.swift */; };
 		225F96CE1FAB1F5000192ECD /* UserPictureVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96CD1FAB1F5000192ECD /* UserPictureVM.swift */; };
-		225F96D01FAB1F5F00192ECD /* UserDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96CF1FAB1F5F00192ECD /* UserDateVM.swift */; };
 		225F96D21FAB25D700192ECD /* MainTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96D11FAB25D700192ECD /* MainTableModel.swift */; };
+		225F96D51FAB473000192ECD /* MainTableItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F96D41FAB473000192ECD /* MainTableItemType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,14 +69,12 @@
 		224B66FF1FA8B5780017E1D5 /* PatronStrategyDrawerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronStrategyDrawerProtocol.swift; sourceTree = "<group>"; };
 		225F96BC1FAB11C400192ECD /* UserInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationModel.swift; sourceTree = "<group>"; };
 		225F96BE1FAB11D200192ECD /* UserPictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPictureModel.swift; sourceTree = "<group>"; };
-		225F96C11FAB12E100192ECD /* UserDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDateModel.swift; sourceTree = "<group>"; };
-		225F96C31FAB186E00192ECD /* CellItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemModel.swift; sourceTree = "<group>"; };
 		225F96C51FAB18DE00192ECD /* MainTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewVM.swift; sourceTree = "<group>"; };
 		225F96C91FAB1B3500192ECD /* dataExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dataExample.json; sourceTree = SOURCE_ROOT; };
 		225F96CB1FAB1F3900192ECD /* UserInformationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationVM.swift; sourceTree = "<group>"; };
 		225F96CD1FAB1F5000192ECD /* UserPictureVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPictureVM.swift; sourceTree = "<group>"; };
-		225F96CF1FAB1F5F00192ECD /* UserDateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDateVM.swift; sourceTree = "<group>"; };
 		225F96D11FAB25D700192ECD /* MainTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableModel.swift; sourceTree = "<group>"; };
+		225F96D41FAB473000192ECD /* MainTableItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableItemType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +125,7 @@
 		224B66C11FA8A56B0017E1D5 /* PatronStrategy */ = {
 			isa = PBXGroup;
 			children = (
+				225F96D31FAB471500192ECD /* Enumerations */,
 				224B66FE1FA8B55F0017E1D5 /* Protocols */,
 				224B66F01FA8B0CC0017E1D5 /* TableMVVM */,
 				224B66C21FA8A56B0017E1D5 /* AppDelegate.swift */,
@@ -195,7 +192,6 @@
 				225F96C51FAB18DE00192ECD /* MainTableViewVM.swift */,
 				225F96CB1FAB1F3900192ECD /* UserInformationVM.swift */,
 				225F96CD1FAB1F5000192ECD /* UserPictureVM.swift */,
-				225F96CF1FAB1F5F00192ECD /* UserDateVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -214,11 +210,17 @@
 			children = (
 				225F96BC1FAB11C400192ECD /* UserInformationModel.swift */,
 				225F96BE1FAB11D200192ECD /* UserPictureModel.swift */,
-				225F96C11FAB12E100192ECD /* UserDateModel.swift */,
-				225F96C31FAB186E00192ECD /* CellItemModel.swift */,
 				225F96D11FAB25D700192ECD /* MainTableModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		225F96D31FAB471500192ECD /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				225F96D41FAB473000192ECD /* MainTableItemType.swift */,
+			);
+			path = Enumerations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,16 +362,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				225F96CC1FAB1F3900192ECD /* UserInformationVM.swift in Sources */,
-				225F96D01FAB1F5F00192ECD /* UserDateVM.swift in Sources */,
 				224B66FC1FA8B45D0017E1D5 /* BTableViewCell.swift in Sources */,
 				225F96D21FAB25D700192ECD /* MainTableModel.swift in Sources */,
-				225F96C21FAB12E100192ECD /* UserDateModel.swift in Sources */,
 				225F96BF1FAB11D200192ECD /* UserPictureModel.swift in Sources */,
-				225F96C41FAB186E00192ECD /* CellItemModel.swift in Sources */,
 				224B67001FA8B5780017E1D5 /* PatronStrategyDrawerProtocol.swift in Sources */,
 				225F96C61FAB18DE00192ECD /* MainTableViewVM.swift in Sources */,
 				224B66F31FA8B1A50017E1D5 /* MainTableViewController.swift in Sources */,
 				225F96CE1FAB1F5000192ECD /* UserPictureVM.swift in Sources */,
+				225F96D51FAB473000192ECD /* MainTableItemType.swift in Sources */,
 				225F96BD1FAB11C400192ECD /* UserInformationModel.swift in Sources */,
 				224B66C31FA8A56B0017E1D5 /* AppDelegate.swift in Sources */,
 				224B66F81FA8B24C0017E1D5 /* ATableViewCell.swift in Sources */,

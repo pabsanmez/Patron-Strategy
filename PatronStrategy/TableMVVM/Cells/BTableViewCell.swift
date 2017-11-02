@@ -8,17 +8,10 @@
 
 import UIKit
 
-struct bModel {
-  var text: String
-  init (text: String){
-    self.text = text
-  }
-}
-class BTableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
+class BTableViewCell: UITableViewCell, cellDrawerProtocol {
   
  
-  @IBOutlet weak var lblB: UILabel!
-  @IBOutlet weak var lblC: UILabel!
+  @IBOutlet weak var profilePicture: UIImageView!
   
   override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,21 +26,16 @@ class BTableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
   
   //Protocol Methods
   func drawCell(cell: UITableViewCell, withItem item: MainTableItemProtocol) {
-    if let cell = cell as? BTableViewCell, let item = item as? UserInformationVM {
-      cell.lblB.text = item.title
-      cell.lblC.text = "Meeeeeh"
+    if let cell = cell as? BTableViewCell, let item = item as? UserPictureVM {
+      //cell.profilePicture.sd_setImage(with: URL(string: "https://bisite.usal.es/archivos/pablo.df_.jpg"))
+      cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
+      cell.profilePicture.clipsToBounds = true;
+      cell.profilePicture.image = UIImage(named: item.imgURL)
     }
   }
   
   
-  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return tableView.dequeueReusableCell(withIdentifier: "BTableViewCell", for: indexPath)
+  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, idCell: String) -> UITableViewCell {
+    return tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
   }
-  
-  func registerCell(_ tableView: UITableView){
-    let nib = UINib(nibName: "BTableViewCell", bundle: nil)
-    tableView.register(nib, forCellReuseIdentifier: "BTableViewCell")
-  }
-  
-    
 }

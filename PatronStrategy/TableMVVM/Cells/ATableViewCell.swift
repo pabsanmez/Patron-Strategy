@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ATableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
+class ATableViewCell: UITableViewCell, cellDrawerProtocol {
   
   @IBOutlet weak var lblTitle: UILabel!
   @IBOutlet weak var lblValue: UILabel!
@@ -20,7 +20,6 @@ class ATableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
   
@@ -31,15 +30,8 @@ class ATableViewCell: UITableViewCell, PatronStrategyDrawerProtocol {
       cell.lblValue.text = item.value
     }
   }
-  
-  
-  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
-    return tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath)
+
+  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, idCell: String) -> UITableViewCell  {
+    return tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
   }
-  
-  func registerCell(_ tableView: UITableView){
-    let nib = UINib(nibName: "ATableViewCell", bundle: nil)
-    tableView.register(nib, forCellReuseIdentifier: "ATableViewCell")
-  }
-    
 }

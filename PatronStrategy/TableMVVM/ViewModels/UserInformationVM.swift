@@ -10,10 +10,10 @@ import Foundation
 
 class UserInformationVM: MainTableItemProtocol {
   
-  var type: PatronStrategyDrawerProtocol{
-    return ATableViewCell()
+  var type: MainTableItemType{
+    return .userInformation
   }
-    
+  
   var title: String
   var value: String
   
@@ -21,7 +21,6 @@ class UserInformationVM: MainTableItemProtocol {
     self.title = title
     self.value = value
   }
-  
 }
 
 

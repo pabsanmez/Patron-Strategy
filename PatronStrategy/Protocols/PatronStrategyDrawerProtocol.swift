@@ -9,17 +9,12 @@
 import Foundation
 import UIKit
 
-protocol PatronStrategyDrawerProtocol {
-  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+protocol cellDrawerProtocol {
+  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, idCell: String) -> UITableViewCell
   func drawCell(cell: UITableViewCell , withItem item: MainTableItemProtocol)
-  //var item: MainTableItemProtocol? { get set }
-}
-
-protocol DataProtocol {
-  var cellDrawer: PatronStrategyDrawerProtocol { get }
-  var texto: Any { get }
 }
 
 protocol MainTableItemProtocol{
-  var type: PatronStrategyDrawerProtocol { get }
+  var type: MainTableItemType { get }
+  //var rowCount: Int { get }
 }

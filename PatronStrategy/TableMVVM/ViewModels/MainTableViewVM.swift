@@ -7,11 +7,14 @@
 //
 
 import Foundation
-import UIKit
 
 class MainTableViewVM: NSObject {
   
-  var items = [MainTableItemProtocol]()
+  private var items = [MainTableItemProtocol]()
+  
+  var getItems: [MainTableItemProtocol] {
+    return items
+  }
   
   override init() {
     super.init()
@@ -30,34 +33,8 @@ class MainTableViewVM: NSObject {
       let apellidosVM = UserInformationVM(title: "Apellidos", value: apellidos)
       items.append(apellidosVM)
     }
-
-    
-  }
-  
-  func registerCells(_ tableView: UITableView) {
-    for cellType in MainTableItemType.allValues{
-      let nib = UINib(nibName: cellType.idCell, bundle: nil)
-      tableView.register(nib, forCellReuseIdentifier: cellType.idCell)
-    }
   }
 }
-
-extension MainTableViewVM: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let item = items[indexPath.row]
-    let cell = item.type.cellType.cellForTableView(tableView, cellForRowAt: indexPath, idCell: item.type.idCell)
-    item.type.cellType.drawCell(cell: cell, withItem: item)
-    return cell
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return items.count
-  }
-}
-
 
 //Public Func to read data from .json File
 public func dataFromFile(_ filename: String) -> Data? {

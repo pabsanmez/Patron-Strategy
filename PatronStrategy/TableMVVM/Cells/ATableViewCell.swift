@@ -30,8 +30,4 @@ class ATableViewCell: UITableViewCell, cellDrawerProtocol {
       cell.lblValue.text = item.value
     }
   }
-
-  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, idCell: String) -> UITableViewCell  {
-    return tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
-  }
 }

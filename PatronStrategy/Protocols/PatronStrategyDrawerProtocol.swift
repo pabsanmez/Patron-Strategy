@@ -14,7 +14,12 @@ protocol cellDrawerProtocol {
   func drawCell(cell: UITableViewCell , withItem item: MainTableItemProtocol)
 }
 
+extension cellDrawerProtocol {
+    func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, idCell: String) -> UITableViewCell  {
+        return tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
+    }
+}
+
 protocol MainTableItemProtocol{
   var type: MainTableItemType { get }
-  //var rowCount: Int { get }
 }

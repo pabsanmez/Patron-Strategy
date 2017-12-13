@@ -33,9 +33,4 @@ class BTableViewCell: UITableViewCell, cellDrawerProtocol {
       cell.profilePicture.image = UIImage(named: item.imgURL)
     }
   }
-  
-  
-  func cellForTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, idCell: String) -> UITableViewCell {
-    return tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
-  }
 }
